@@ -76,7 +76,7 @@ Usage
 To interact with the API, use the following endpoints and methods.
 
 API Endpoints
-GET /api/courses
+1.GET /api/courses
 
 Fetches a list of courses.
 
@@ -126,7 +126,7 @@ Response Example:
 }
 ```
 
-GET /api/categories
+2.GET /api/categories
 
 Fetches a list of available categories.
 
@@ -191,7 +191,7 @@ Response Example:
     }
 }
 ```
-GET /api/courses/{id}
+3.GET /api/courses/{id}
 
 Fetch a single course by ID.
 
@@ -217,7 +217,7 @@ Response Example:
 }
 ```
 
-PUT /api/courses/{id}
+4.PUT /api/courses/{id}
 
 Update a course by ID.
 
@@ -258,7 +258,7 @@ Response Example:
     }
 }
 ```
-DELETE /api/courses/{id}
+5.DELETE /api/courses/{id}
 
 Delete a course by ID.
 
