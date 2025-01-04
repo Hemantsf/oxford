@@ -122,6 +122,11 @@ Seed the database:
 php artisan db:seed --class=DatabaseSeeder
 ```
 
+Install npm
+```bash
+npm install
+```
+
 Compile assets (optional for frontend):
 ```bash
 npm run dev
