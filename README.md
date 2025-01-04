@@ -80,7 +80,7 @@ GET /api/courses
 Fetches a list of courses.
 
 Query Parameters:
-
+```bash
 category (optional): The category of the course.
 price (optional): Price range (min-max).
 difficulty (optional): Comma-separated list of difficulty levels (beginner, intermediate, advanced).
@@ -89,6 +89,8 @@ format (optional): Format of the course (e.g., Interactive/Live, Video, Text-bas
 popularity (optional): Popularity (e.g., Trending, Most Enrolled).
 certification (optional): Filters courses with certification availability (true, false).
 release_date (optional): Filters courses by release date (30_days, 6_months, 1_year).
+```
+
 Example Request:
 
 ```bash
@@ -149,7 +151,7 @@ Create a new course.
 
 Request Body Example:
 
-json
+```json
 Copy code
 {
     "title": "New Course",
@@ -164,10 +166,10 @@ Copy code
     "popularity": "Most Enrolled",
     "rating": 5
 }
+```
 Response Example:
 
-json
-Copy code
+```json
 {
     "status": "success",
     "message": "",
@@ -189,6 +191,7 @@ Copy code
         "updated_at": "2025-01-04T06:46:12.000000Z"
     }
 }
+```
 GET /api/courses/{id}
 
 Fetch a single course by ID.
