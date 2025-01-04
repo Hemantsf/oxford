@@ -1,6 +1,6 @@
 # Course Management API
 
-This API provides endpoints to manage courses, categories, and course-related data such as price, difficulty, duration, format, certification, popularity, and release date.
+This API provides endpoints to manage courses, categories, and course-related data such as instructor,price, difficulty, duration, format, certification, popularity, and release date.
 
 ## Table of Contents
 - [Project Overview](#project-overview)
@@ -30,7 +30,7 @@ Follow these steps to install and set up the project locally.
 - PHP 7.4+
 - Composer
 - Laravel (or appropriate framework)
-- MySQL / PostgreSQL (or your database of choice)
+- PostgreSQL
 
 ### Steps
 
@@ -38,6 +38,7 @@ Follow these steps to install and set up the project locally.
    ```bash
    git clone https://github.com/Hemantsf/oxford.git
    cd oxford
+   ```
 Install dependencies:
 
 ```bash
