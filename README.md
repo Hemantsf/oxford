@@ -40,15 +40,15 @@ Follow these steps to install and set up the project locally.
    cd oxford
 Install dependencies:
 
-bash
+```bash
 composer install
 
 Generate the application key:
-bash
+```bash
 php artisan key:generate
 
 Run database migrations:
-bash
+```bash
 php artisan migrate
 
 Seed the database:
