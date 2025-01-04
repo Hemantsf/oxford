@@ -135,8 +135,12 @@ php artisan serve
 Now, you can access the API at http://127.0.0.1:8000/.
 
 Usage
-To interact with the API, use the following endpoints and methods.
+To interact with the API, use the following endpoints and methods,json.
 
+Import postman json for api testing
+```bash
+postman-packs/Oxford.postman_collection.json
+```
 API Endpoints
 1.GET /api/courses
 
