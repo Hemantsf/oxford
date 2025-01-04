@@ -55,16 +55,19 @@ php artisan migrate
 ```
 
 Seed the database:
-bash
+```bash
 php artisan db:seed --class=DatabaseSeeder
+```
 
 Compile assets (optional for frontend):
-bash
+```bash
 npm run dev
+```
 
 Start the Laravel development server:
-bash
+```bash
 php artisan serve
+```
 
 Now, you can access the API at http://127.0.0.1:8000/.
 
@@ -88,13 +91,13 @@ certification (optional): Filters courses with certification availability (true,
 release_date (optional): Filters courses by release date (30_days, 6_months, 1_year).
 Example Request:
 
-bash
-Copy code
+```bash
 GET /api/courses?category=1&price=10-100&difficulty=intermediate,advanced&duration=2–5+hours&format=Interactive/Live&popularity=Trending&certification=true&release_date=30_days
+```
+
 Response Example:
 
-json
-Copy code
+```json
 {
     "status": "success",
     "message": "",
@@ -118,13 +121,15 @@ Copy code
         }
     ]
 }
+```
+
 GET /api/categories
 
 Fetches a list of available categories.
 
 Response Example:
 
-json
+```json
 Copy code
 {
     "status": "success",
@@ -136,6 +141,8 @@ Copy code
         { "id": 4, "name": "Marketing" }
     ]
 }
+```
+
 POST /api/courses
 
 Create a new course.
