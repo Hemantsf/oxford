@@ -44,7 +44,7 @@ Install dependencies:
 ```bash
 composer install
 ```
-Cretae .env change databse according your credentials
+Create .env change databse according your database and credentials
 ```bash
 APP_NAME=Laravel
 APP_ENV=local
