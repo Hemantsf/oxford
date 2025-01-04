@@ -1,0 +1,209 @@
+{
+	"info": {
+		"_postman_id": "52abbca4-02e3-4fdc-b2b2-ec08ee0de621",
+		"name": "Oxford",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27625470"
+	},
+	"item": [
+		{
+			"name": "course_list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{APP_URL}}api/courses?category=1&price=10-100&difficulty=intermediate%2Cadvanced&duration=2%E2%80%935+hours&format=Interactive%2FLive&popularity=Trending",
+					"host": [
+						"{{APP_URL}}api"
+					],
+					"path": [
+						"courses"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "1"
+						},
+						{
+							"key": "price",
+							"value": "10-100"
+						},
+						{
+							"key": "difficulty",
+							"value": "intermediate%2Cadvanced"
+						},
+						{
+							"key": "duration",
+							"value": "2%E2%80%935+hours"
+						},
+						{
+							"key": "format",
+							"value": "Interactive%2FLive"
+						},
+						{
+							"key": "popularity",
+							"value": "Trending"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{APP_URL}}api/categories",
+					"host": [
+						"{{APP_URL}}api"
+					],
+					"path": [
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_course",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\" : \"testing api two\",\n    \"description\" : \"testing description\",\n    \"price\": 0,\n    \"category_id\": 1,\n    \"instructor_id\" : 2,\n    \"difficulty\" : \"Intermediate\",\n    \"duration\" : \"< 2 hours\",\n    \"format\" : \"Video\",\n    \"certification_available\" : true,\n    \"popularity\" : \"Most Enrolled\",\n    \"rating\" : 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{APP_URL}}api/courses",
+					"host": [
+						"{{APP_URL}}api"
+					],
+					"path": [
+						"courses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_course",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\" : \"testing api two\",\n    \"description\" : \"testing description\",\n    \"price\": 0,\n    \"category_id\": 1,\n    \"instructor_id\" : 2,\n    \"difficulty\" : \"Intermediate\",\n    \"duration\" : \"2–5 hours\",\n    \"format\" : \"Video\",\n    \"certification_available\" : true,\n    \"popularity\" : \"Most Enrolled\",\n    \"rating\" : 4\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{APP_URL}}api/courses/1",
+					"host": [
+						"{{APP_URL}}api"
+					],
+					"path": [
+						"courses",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_course_details",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{APP_URL}}api/courses/1",
+					"host": [
+						"{{APP_URL}}api"
+					],
+					"path": [
+						"courses",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_course",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{APP_URL}}api/courses/15",
+					"host": [
+						"{{APP_URL}}api"
+					],
+					"path": [
+						"courses",
+						"15"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "APP_URL",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
