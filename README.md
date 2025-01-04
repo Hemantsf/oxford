@@ -132,7 +132,6 @@ Fetches a list of available categories.
 Response Example:
 
 ```json
-Copy code
 {
     "status": "success",
     "message": "",
@@ -152,7 +151,6 @@ Create a new course.
 Request Body Example:
 
 ```json
-Copy code
 {
     "title": "New Course",
     "description": "Course description here.",
@@ -198,8 +196,7 @@ Fetch a single course by ID.
 
 Response Example:
 
-json
-Copy code
+```json
 {
     "status": "success",
     "message": "",
@@ -217,14 +214,15 @@ Copy code
         "rating": 4
     }
 }
+```
+
 PUT /api/courses/{id}
 
 Update a course by ID.
 
 Request Body Example:
 
-json
-Copy code
+```json
 {
     "title": "Updated Course Title",
     "description": "Updated description.",
@@ -238,10 +236,10 @@ Copy code
     "popularity": "Trending",
     "rating": 4
 }
+```
 Response Example:
 
-json
-Copy code
+```json
 {
     "status": "success",
     "message": "",
@@ -258,26 +256,24 @@ Copy code
         "rating": 4
     }
 }
+```
 DELETE /api/courses/{id}
 
 Delete a course by ID.
 
 Response Example:
 
-json
-Copy code
+```json
 {
     "status": "success",
     "message": "Course deleted successfully."
 }
+```
 Contributing
 Feel free to fork this repository and submit pull requests to contribute to the project.
 
 License
 This project is licensed under the MIT License - see the LICENSE.md file for details.
-
-r
-Copy code
 
 This `README.md` covers all the important sections, including API endpoints, usage instructions, and example requests and responses.
 
