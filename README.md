@@ -40,7 +40,7 @@ Follow these steps to install and set up the project locally.
    cd oxford
 
 ```bash
-composer install```bash
+composer install
 php artisan key:generate
 php artisan migrate
 php artisan db:seed --class=DatabaseSeeder
@@ -55,6 +55,7 @@ API Endpoints
 1. GET /api/courses
 Fetches a list of courses.
 
+```bash
 Parameters:
 category (optional): The category of the course.
 price (optional): Price range (min-max).
@@ -65,11 +66,12 @@ popularity=Trending: Filters courses marked with Trending,Most Enrolled.
 popularity=True: Filters courses Certificate Available,Not Available based on boolean value.
 release_date= 30_days : Filters courses marked with 30_days,6_months,1_year.
 
+```bash
 Example Requests
 GET /api/courses?category=1&price=10-100&difficulty=intermediate,advanced&duration=2–5+hours&format=Interactive/Live&popularity=Trending&certification=1&release_date=30_days
 
 
-
+```bash
 Response
 {
     "status": "success",
@@ -108,7 +110,7 @@ Response
     ]
 }
 
-
+```bash
 2. GET /api/categories
 Fetches the list of available categories.
 
@@ -143,6 +145,7 @@ Fetches the list of available categories.
     ]
 }
 
+```bash
 3.POST /api/courses
 Body : 
 {
@@ -159,6 +162,7 @@ Body :
     "rating" : 5
 }
 
+```bash
 Response: 
 {
     "status": "success",
@@ -181,10 +185,14 @@ Response:
         "id": 15
     }
 }
+
+```bash
 4.GET /api/courses/1
 
+```bash
 5.PUT /api/courses/1
 
+```bash
 Body: 
 {
     "title" : "testing api two",
@@ -200,6 +208,7 @@ Body:
     "rating" : 4
 }
 
+```bash
 Response
 {
     "status": "success",
@@ -223,6 +232,7 @@ Response
     }
 }
 
+```bash
 6.DELETE /api/courses/1
 
 
