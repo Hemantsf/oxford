@@ -42,14 +42,17 @@ Install dependencies:
 
 ```bash
 composer install
+```
 
 Generate the application key:
 ```bash
 php artisan key:generate
+```
 
 Run database migrations:
 ```bash
 php artisan migrate
+```
 
 Seed the database:
 bash
