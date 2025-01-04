@@ -37,19 +37,19 @@ Follow these steps to install and set up the project locally.
 1. Clone the repository:
    ```bash
    git clone https://github.com/Hemantsf/oxford.git
-   cd yourproject
+   cd oxford
 
-
-composer install
+```bash
+composer install```bash
 php artisan key:generate
 php artisan migrate
 php artisan db:seed --class=DatabaseSeeder
 npm run dev
 php artisan serve
 
-
+```bash
 Usage
-To run the application, navigate to http://localhost:8000 in your browser.
+To run the application, navigate to [http://127.0.0.1:8000/] in your browser.
 Interact with the app and explore the features.
 API Endpoints
 1. GET /api/courses
