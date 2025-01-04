@@ -1,26 +1,15 @@
-# Use the official PHP image with Apache
-FROM php:8.0-apache
-
-# Install dependencies for Laravel
-RUN apt-get update && apt-get install -y libpng-dev libjpeg-dev libfreetype6-dev zip git && \
-    docker-php-ext-configure gd --with-freetype --with-jpeg && \
-    docker-php-ext-install gd pdo pdo_mysql && \
-    a2enmod rewrite
-
-# Set the working directory
-WORKDIR /var/www/html
-
-# Copy the application files
+FROM richarvey/nginx-php-fpm:1.7.2
 COPY . .
-
-# Install Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-# Install PHP dependencies using Composer
-RUN composer install --optimize-autoloader --no-dev
-
-# Expose the port Apache is running on
-EXPOSE 80
-
-# Set the start command for Apache
-CMD ["apache2-foreground"]
+# Image config
+ENV SKIP_COMPOSER 1
+ENV WEBROOT /var/www/html/public
+ENV PHP_ERRORS_STDERR 1
+ENV RUN_SCRIPTS 1
+ENV REAL_IP_HEADER 1
+# Laravel config
+ENV APP_ENV production
+ENV APP_DEBUG false
+ENV LOG_CHANNEL stderr
+# Allow composer to run as root
+ENV COMPOSER_ALLOW_SUPERUSER 1
+CMD ["/start.sh"]
