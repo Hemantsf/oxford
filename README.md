@@ -41,33 +41,28 @@ Follow these steps to install and set up the project locally.
 Install dependencies:
 
 bash
-Copy code
 composer install
+
 Generate the application key:
-
 bash
-Copy code
 php artisan key:generate
+
 Run database migrations:
-
 bash
-Copy code
 php artisan migrate
+
 Seed the database:
-
 bash
-Copy code
 php artisan db:seed --class=DatabaseSeeder
+
 Compile assets (optional for frontend):
-
 bash
-Copy code
 npm run dev
-Start the Laravel development server:
 
+Start the Laravel development server:
 bash
-Copy code
 php artisan serve
+
 Now, you can access the API at http://127.0.0.1:8000/.
 
 Usage
