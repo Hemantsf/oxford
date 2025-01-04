@@ -49,7 +49,7 @@ php artisan serve
 
 ```bash
 Usage
-To run the application, navigate to [http://127.0.0.1:8000/] in your browser.
+To run the application, navigate to (http://127.0.0.1:8000/) in your browser.
 Interact with the app and explore the features.
 API Endpoints
 1. GET /api/courses
