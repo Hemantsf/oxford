@@ -67,11 +67,12 @@ popularity=True: Filters courses Certificate Available,Not Available based on bo
 release_date= 30_days : Filters courses marked with 30_days,6_months,1_year.
 
 Example Requests
+
 ```
 GET /api/courses?category=1&price=10-100&difficulty=intermediate,advanced&duration=2–5+hours&format=Interactive/Live&popularity=Trending&certification=1&release_date=30_days
 
-
 Response
+
 ```
 {
     "status": "success",
@@ -145,8 +146,9 @@ Fetches the list of available categories.
     ]
 }
 
-```
 3.POST /api/courses
+
+```
 Body : 
 {
     "title" : "testing api two",
@@ -209,7 +211,7 @@ Body:
 }
 
 ```
-Response
+Response:
 {
     "status": "success",
     "message": "",
