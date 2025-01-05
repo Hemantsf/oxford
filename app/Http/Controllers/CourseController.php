@@ -124,7 +124,7 @@ class CourseController extends BaseController
                 'difficulty' => 'required|in:Intermediate,Beginner,Advanced',
                 'duration' => 'required|in:< 2 hours,2–5 hours,5–10 hours,> 10 hours',
                 'format' => 'required|string',
-                'certification_available' => 'required|in:true,false',
+                'certification_available' => 'required|boolean',
                 'popularity' => 'required|in:Most Enrolled,Trending,Recently Viewed',
                 'rating' => 'required|integer|max:5',
             ]);

@@ -75,8 +75,8 @@
                 <label for="certification_available" class="block text-lg font-medium text-gray-700">Certification</label>
                 <select id="certification_available" name="certification_available" class="mt-2 block w-full p-3 border border-gray-300 rounded-md">
                     <option value="">Certification Available</option>
-                    <option value="true">Yes</option>
-                    <option value="false">No</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
                 </select>
             </div>
             <div class="flex flex-col">
@@ -265,7 +265,7 @@
             .then(response => {
                 if (response.data.status === 'success') {
                     alert("Course created successfully!");
-                    window.location.href = "/courses";
+                    window.location.href = "/";
                 } else {
                     alert("Error creating course: " + response.data.msg);
                 }

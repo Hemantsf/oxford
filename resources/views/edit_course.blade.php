@@ -75,8 +75,8 @@
                 <label for="certification_available" class="block text-lg font-medium text-gray-700">Certification</label>
                 <select id="certification_available" name="certification_available" class="mt-2 block w-full p-3 border border-gray-300 rounded-md">
                     <option value="">Certification Available</option>
-                    <option value="true">Yes</option>
-                    <option value="false">No</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
                 </select>
             </div>
             <div class="flex flex-col">
@@ -143,7 +143,7 @@
                     document.getElementById("difficulty").value = course.difficulty;
                     document.getElementById("format").value = course.format;
                     document.getElementById("duration").value = course.duration;
-                    document.getElementById("certification_available").value = course.certification_available ? "true" : "false";
+                    document.getElementById("certification_available").value = course.certification_available ? "1" : "0";
                     document.getElementById("popularity").value = course.popularity;
                     document.getElementById("rating").value = course.rating;
                 } else {
