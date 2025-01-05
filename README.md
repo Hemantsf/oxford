@@ -162,6 +162,7 @@ format (optional): Format of the course (e.g., Interactive/Live, Video, Text-bas
 popularity (optional): Popularity (e.g., Trending, Most Enrolled).
 certification (optional): Filters courses with certification availability (true, false).
 release_date (optional): Filters courses by release date (30_days, 6_months, 1_year).
+ratings (optional): Fiters courses by rating (1,2,3,4,5)
 ```
 
 Example Request:
