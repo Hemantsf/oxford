@@ -102,7 +102,7 @@
 
         <!-- Submit Button -->
         <div class="text-center mt-8">
-            <button type="submit" class="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">Create Course</button>
+            <button type="submit" class="bg-white text-blue-600 border-2 border-blue-600 font-semibold py-2 px-4 rounded-lg hover:bg-blue-600 hover:text-white hover:border-blue-700 transition duration-300">Create Course</button>
         </div>
     </form>
 </div>
