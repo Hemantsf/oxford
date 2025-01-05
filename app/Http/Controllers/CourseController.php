@@ -92,8 +92,12 @@ class CourseController extends BaseController
         } catch (\Exception $e) {
             return $this->apiError('Unable to fetch courses', 'fetch_error', ['error' => $e->getMessage()]);
         }
+    }
 
-        
+    public function create_course(){
+        // echo 'hiii12';
+        // die();
+       return view('create_course');
     }
 
     public function show($id)
@@ -120,7 +124,7 @@ class CourseController extends BaseController
                 'difficulty' => 'required|in:Intermediate,Beginner,Advanced',
                 'duration' => 'required|in:< 2 hours,2–5 hours,5–10 hours,> 10 hours',
                 'format' => 'required|string',
-                'certification_available' => 'required|boolean',
+                'certification_available' => 'required|in:true,false',
                 'popularity' => 'required|in:Most Enrolled,Trending,Recently Viewed',
                 'rating' => 'required|integer|max:5',
             ]);
@@ -142,8 +146,8 @@ class CourseController extends BaseController
             $course = Course::findOrFail($id);
 
             $validatedData = $request->validate([
-                'title' => 'required|string|max:255',
-                'description' => 'required|string',
+                'title' => 'required|string|max:100',
+                'description' => 'required|string|max:255',
                 'price' => 'required|numeric',
                 'category_id' => 'required|exists:categories,id',
                 'instructor_id' => 'required|exists:instructors,id',

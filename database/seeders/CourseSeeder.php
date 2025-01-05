@@ -27,16 +27,16 @@ class CourseSeeder extends Seeder
 
         // Define course data array
         $coursesData = [
-            ['title' => 'Laravel Basics', 'description' => 'Learn the basics of Laravel.', 'price' => 49.99, 'category' => $programmingCategory, 'instructor' => $johnDoeInstructor],
-            ['title' => 'Advanced Laravel', 'description' => 'Master Laravel with advanced techniques.', 'price' => 99.99, 'category' => $programmingCategory, 'instructor' => $janeSmithInstructor],
-            ['title' => 'HTML and CSS Basics', 'description' => 'Start from scratch and build beautiful websites.', 'price' => 29.99, 'category' => $designCategory, 'instructor' => $johnDoeInstructor],
-            ['title' => 'JavaScript for Beginners', 'description' => 'Learn JavaScript fundamentals for web development.', 'price' => 39.99, 'category' => $programmingCategory, 'instructor' => $johnDoeInstructor],
-            ['title' => 'Python Programming', 'description' => 'Learn Python for data analysis and automation.', 'price' => 59.99, 'category' => $programmingCategory, 'instructor' => $johnDoeInstructor],
-            ['title' => 'Responsive Web Design', 'description' => 'Design websites that work on any screen size.', 'price' => 49.99, 'category' => $designCategory, 'instructor' => $janeSmithInstructor],
-            ['title' => 'Data Structures and Algorithms', 'description' => 'Master data structures and algorithms for programming.', 'price' => 89.99, 'category' => $programmingCategory, 'instructor' => $johnDoeInstructor],
-            ['title' => 'Business Strategy 101', 'description' => 'Learn the fundamentals of business strategy and management.', 'price' => 79.99, 'category' => $designCategory, 'instructor' => $janeSmithInstructor],
-            ['title' => 'Marketing Fundamentals', 'description' => 'Understand the core principles of marketing and digital strategies.', 'price' => 49.99, 'category' => $designCategory, 'instructor' => $johnDoeInstructor],
-            ['title' => 'UI/UX Design for Beginners', 'description' => 'Learn the basics of user interface and user experience design.', 'price' => 59.99, 'category' => $designCategory, 'instructor' => $janeSmithInstructor]
+            ['title' => 'Laravel Basics', 'description' => 'Learn the basics of Laravel.', 'price' => 49, 'category' => $programmingCategory, 'instructor' => $johnDoeInstructor],
+            ['title' => 'Advanced Laravel', 'description' => 'Master Laravel with advanced techniques.', 'price' => 99, 'category' => $programmingCategory, 'instructor' => $janeSmithInstructor],
+            ['title' => 'HTML and CSS Basics', 'description' => 'Start from scratch and build beautiful websites.', 'price' => 29, 'category' => $designCategory, 'instructor' => $johnDoeInstructor],
+            ['title' => 'JavaScript for Beginners', 'description' => 'Learn JavaScript fundamentals for web development.', 'price' => 39, 'category' => $programmingCategory, 'instructor' => $johnDoeInstructor],
+            ['title' => 'Python Programming', 'description' => 'Learn Python for data analysis and automation.', 'price' => 59, 'category' => $programmingCategory, 'instructor' => $johnDoeInstructor],
+            ['title' => 'Responsive Web Design', 'description' => 'Design websites that work on any screen size.', 'price' => 49, 'category' => $designCategory, 'instructor' => $janeSmithInstructor],
+            ['title' => 'Data Structures and Algorithms', 'description' => 'Master data structures and algorithms for programming.', 'price' => 89, 'category' => $programmingCategory, 'instructor' => $johnDoeInstructor],
+            ['title' => 'Business Strategy 101', 'description' => 'Learn the fundamentals of business strategy and management.', 'price' => 79, 'category' => $designCategory, 'instructor' => $janeSmithInstructor],
+            ['title' => 'Marketing Fundamentals', 'description' => 'Understand the core principles of marketing and digital strategies.', 'price' => 49, 'category' => $designCategory, 'instructor' => $johnDoeInstructor],
+            ['title' => 'UI/UX Design for Beginners', 'description' => 'Learn the basics of user interface and user experience design.', 'price' => 59, 'category' => $designCategory, 'instructor' => $janeSmithInstructor]
         ];
 
         // Loop through the courses data and insert each course with dynamic values

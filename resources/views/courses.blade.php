@@ -133,6 +133,15 @@
         Reset Filters
     </button>
 </div>
+
+  
+    <div class="flex justify-end p-3">
+    <a href="{{ url('/create_course') }}">
+        <button class="bg-white text-gray-600 border-2 border-gray-600 font-semibold py-2 px-4 rounded-lg hover:bg-gray-600 hover:text-white hover:border-gray-700 transition duration-300">
+            Create Course
+        </button>
+    </a>
+</div>
     <div id="courses-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Courses will be dynamically inserted here -->
     </div>
@@ -237,7 +246,12 @@
 
                         courseElement.innerHTML = `
                             <h6 class="text-2xl font-bold text-blue-600">${course.title}</h6>
-                            <p class="text-sm text-gray-600 italic mb-1">${course.description}</p>
+                            <p class="text-sm text-gray-600 italic mb-1" id="description-${course.id}">
+                            ${course.description.length > 100 ? 
+                                `${course.description.slice(0, 100)}... <span class="text-blue-600 cursor-pointer underline" onclick="toggleDescription(${course.id})">See More</span>` : 
+                                course.description
+                            }
+                        </p>
                             <div class="grid grid-cols-2 gap-4 text-sm">
                                 <p><strong class="font-semibold italic">Instructor:</strong> ${course.instructor.name}</p>
                                 <p><strong class="font-semibold italic">Category:</strong> ${course.category.name}</p>
@@ -257,9 +271,14 @@
                             </div>
                             <div class="mt-4">
                                 <button 
-                                    class="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300"
-                                    onclick="applyNow('${course.id}')">
-                                    Apply Now
+                                    class="bg-white text-blue-600 border-2 border-blue-600 font-semibold py-2 px-4 rounded-lg hover:bg-blue-600 hover:text-white hover:border-blue-700 transition duration-300"
+                                    onclick="editCourse(${course.id})">
+                                    Edit Course
+                                </button>
+                                <button 
+                                    class="bg-white text-red-600 border-2 border-red-600 font-semibold py-2 px-4 rounded-lg hover:bg-red-600 hover:text-white hover:border-red-700 transition duration-300"
+                                    onclick="deleteCourse(${course.id})">
+                                    Delete Course
                                 </button>
                             </div>
                         `;
@@ -268,6 +287,8 @@
                     });
                 }
             }
+            
+
 
             // Debounce function to limit API calls
             function debounce(func, delay) {
@@ -338,6 +359,42 @@
             fetchCourses();
         });
 
+        function editCourse(courseId) {
+        window.location.href = `/edit_course/${courseId}`;
+                // Redirect to course edit page
+        }
+
+        function deleteCourse(courseId) {
+            console.log("Deleting course:", courseId);
+
+            // Confirm deletion
+            if (confirm("Are you sure you want to delete this course?")) {
+                // Sending a DELETE request to the API
+                fetch(`/api/courses/${courseId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        // Add any authorization headers if required
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // console.log("Course deleted successfully!");
+                        // Optionally, you can update the UI to remove the deleted course from the list
+                        // e.g., remove the course from the DOM or re-fetch the list of courses
+                        // alert("Course deleted successfully.");
+                        location.reload(); // Reload the page to reflect changes (or handle UI updates as needed)
+                    } else {
+                        console.error("Failed to delete course:", response.statusText);
+                        alert("Failed to delete course.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error deleting course:", error);
+                    alert("An error occurred while deleting the course.");
+                });
+            }
+        }
 
         function generateStars(rating) {
         let stars = '';
