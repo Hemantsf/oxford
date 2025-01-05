@@ -147,6 +147,7 @@ Import postman json for api testing
 postman-packs/Oxford.postman_collection.json
 ```
 API Endpoints
+
 1.GET /api/courses
 
 Fetches a list of courses.
