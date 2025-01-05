@@ -246,12 +246,7 @@
 
                         courseElement.innerHTML = `
                             <h6 class="text-2xl font-bold text-blue-600">${course.title}</h6>
-                            <p class="text-sm text-gray-600 italic mb-1" id="description-${course.id}">
-                            ${course.description.length > 100 ? 
-                                `${course.description.slice(0, 100)}... <span class="text-blue-600 cursor-pointer underline" onclick="toggleDescription(${course.id})">See More</span>` : 
-                                course.description
-                            }
-                        </p>
+                            <p class="text-sm text-gray-600 italic mb-1">${course.description}</p>
                             <div class="grid grid-cols-2 gap-4 text-sm">
                                 <p><strong class="font-semibold italic">Instructor:</strong> ${course.instructor.name}</p>
                                 <p><strong class="font-semibold italic">Category:</strong> ${course.category.name}</p>
