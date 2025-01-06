@@ -44,7 +44,7 @@ Install dependencies:
 ```bash
 composer install
 ```
-Change .env.example to .env and change databse according your database and credentials
+Change .env.example to .env and change database according your database and credentials
 ```bash
 DB_CONNECTION=pgsql
 DB_HOST=127.0.0.1
