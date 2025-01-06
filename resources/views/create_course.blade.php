@@ -21,7 +21,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div class="flex flex-col">
                 <label for="price" class="block text-lg font-medium text-gray-700">Price($)</label>
-                <input type="number" id="price" name="price" class="mt-2 block w-full p-3 border border-gray-300 rounded-md" placeholder="Course Price">
+                <input type="text" id="price" name="price" class="mt-2 block w-full p-3 border border-gray-300 rounded-md" placeholder="Course Price">
             </div>
             <div class="flex flex-col">
                 <label for="instructor" class="block text-lg font-medium text-gray-700">Instructor</label>
@@ -162,116 +162,135 @@
             .catch(error => console.error('Error fetching instructors:', error));
     }
 
-    // Validate form fields
     function validateForm() {
-        let isValid = true;
-        const title = document.getElementById("title").value.trim();
-        const description = document.getElementById("description").value.trim();
-        const price = document.getElementById("price").value.trim();
-        const instructor = document.getElementById("instructor").value;
-        const category = document.getElementById("category").value;
-        const difficulty = document.getElementById("difficulty").value;
-        const format = document.getElementById("format").value;
-        const duration = document.getElementById("duration").value;
-        const certificationAvailable = document.getElementById("certification_available").value;
-        const popularity = document.getElementById("popularity").value;
-        const rating = document.getElementById("rating").value;
+    let isValid = true;
+    const title = document.getElementById("title").value.trim();
+    const description = document.getElementById("description").value.trim();
+    const price = document.getElementById("price").value.trim();
+    const instructor = document.getElementById("instructor").value;
+    const category = document.getElementById("category").value;
+    const difficulty = document.getElementById("difficulty").value;
+    const format = document.getElementById("format").value;
+    const duration = document.getElementById("duration").value;
+    const certificationAvailable = document.getElementById("certification_available").value;
+    const popularity = document.getElementById("popularity").value;
+    const rating = document.getElementById("rating").value;
 
-        // Clear previous error messages
-        const errors = document.querySelectorAll(".error-message");
-        errors.forEach(error => error.remove());
+    // Clear previous error messages
+    const errors = document.querySelectorAll(".error-message");
+    errors.forEach(error => error.remove());
 
-        // Helper function to display error
-        function showError(inputId, message) {
-            const input = document.getElementById(inputId);
-            const errorDiv = document.createElement("div");
-            errorDiv.className = "text-red-500 text-sm mt-1 error-message";
-            errorDiv.textContent = message;
-            input.parentElement.appendChild(errorDiv);
-        }
-
-        // Check required fields
-        if (!title) {
-            showError("title", "Title is required.");
-            isValid = false;
-        }
-        if (title.length > 100) {
-            showError("title", "Title cannot exceed 100 characters.");
-            isValid = false;
-        }
-
-        if (!description) {
-            showError("description", "Description is required.");
-            isValid = false;
-        }
-
-        if (title.description > 255) {
-            showError("title", "Title cannot exceed 100 characters.");
-            isValid = false;
-        }
-
-        if (!price || price <= 0) {
-            showError("price", "Price should be a positive number.");
-            isValid = false;
-        }
-
-        if (!instructor) {
-            showError("instructor", "Instructor is required.");
-            isValid = false;
-        }
-
-        if (!category) {
-            showError("category", "Category is required.");
-            isValid = false;
-        }
-
-        if (!difficulty) {
-            showError("difficulty", "Difficulty level is required.");
-            isValid = false;
-        }
-
-        if (!format) {
-            showError("format", "Format is required.");
-            isValid = false;
-        }
-
-        if (!duration) {
-            showError("duration", "Duration is required.");
-            isValid = false;
-        }
-
-        if (certificationAvailable === "") {
-            showError("certification_available", "Certification availability is required.");
-            isValid = false;
-        }
-
-        if (!popularity) {
-            showError("popularity", "Popularity is required.");
-            isValid = false;
-        }
-
-        if (!rating) {
-            showError("rating", "Rating is required.");
-            isValid = false;
-        }
-
-        return isValid;
+    // Helper function to display error
+    function showError(inputId, message) {
+        const input = document.getElementById(inputId);
+        const errorDiv = document.createElement("div");
+        errorDiv.className = "text-red-500 text-sm mt-1 error-message";
+        errorDiv.textContent = message;
+        input.parentElement.appendChild(errorDiv);
     }
 
-    // Submit form data
-    function submitForm() {
-        const formData = new FormData(document.getElementById("create-course-form"));
-        axios.post("/api/courses", formData)
-            .then(response => {
-                if (response.data.status === 'success') {
-                    alert("Course created successfully!");
-                    window.location.href = "/";
-                } else {
-                    alert("Error creating course: " + response.data.msg);
-                }
-            })
-            .catch(error => {
-                alert("Error creating course: " + error.message);
+    // Check required fields
+    if (!title) {
+        showError("title", "Title is required.");
+        isValid = false;
+    }
+    if (title.length > 100) {
+        showError("title", "Title cannot exceed 100 characters.");
+        isValid = false;
+    }
+
+    if (!description) {
+        showError("description", "Description is required.");
+        isValid = false;
+    }
+    if (description.length > 255) {
+        showError("description", "Description cannot exceed 255 characters.");
+        isValid = false;
+    }
+
+    // Price validation - Ensure it's a positive number, either integer or float
+    const priceRegex = /^[0-9]+(\.[0-9]{1,2})?$/;  // Matches integers or numbers with up to 2 decimal places
+    if (!price || !priceRegex.test(price) || parseFloat(price) <= 0) {
+        showError("price", "Price should be a positive number with up to two decimal places.");
+        isValid = false;
+    }
+
+    if (!instructor) {
+        showError("instructor", "Instructor is required.");
+        isValid = false;
+    }
+
+    if (!category) {
+        showError("category", "Category is required.");
+        isValid = false;
+    }
+
+    if (!difficulty) {
+        showError("difficulty", "Difficulty level is required.");
+        isValid = false;
+    }
+
+    if (!format) {
+        showError("format", "Format is required.");
+        isValid = false;
+    }
+
+    if (!duration) {
+        showError("duration", "Duration is required.");
+        isValid = false;
+    }
+
+    if (certificationAvailable === "") {
+        showError("certification_available", "Certification availability is required.");
+        isValid = false;
+    }
+
+    if (!popularity) {
+        showError("popularity", "Popularity is required.");
+        isValid = false;
+    }
+
+    if (!rating) {
+        showError("rating", "Rating is required.");
+        isValid = false;
+    }
+
+    return isValid;
+}
+
+
+function submitForm() {
+    const formData = new FormData(document.getElementById("create-course-form"));
+
+    axios.post("/api/courses", formData)
+        .then(response => {
+            if (response.data.status === 'success') {
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Course created successfully!',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    window.location.href = "/"; // Redirect to home page after success
+                });
+            } else {
+                Swal.fire({
+                    title: 'Error!',
+                    text: `Error creating course: ${response.data.msg}`,
+                    icon: 'error',
+                    confirmButtonText: 'Try Again'
+                });
+            }
+        })
+        .catch(error => {
+            console.error("Error creating course:", error);
+            Swal.fire({
+                title: 'Error!',
+                text: 'An unexpected error occurred. Please try again.',
+                icon: 'error',
+                confirmButtonText: 'OK'
             });
-    }
+        });
+}
+
 </script>

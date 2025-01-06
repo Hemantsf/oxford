@@ -193,35 +193,53 @@
             .catch(error => console.error('Error fetching instructors:', error));
     }
 
-    // Submit Form Data
-    function submitForm(courseId) {
-        const formData = {
-            title: document.getElementById("title").value,
-            description: document.getElementById("description").value,
-            price: document.getElementById("price").value,
-            instructor_id: document.getElementById("instructor").value,
-            category_id: document.getElementById("category").value,
-            difficulty: document.getElementById("difficulty").value,
-            format: document.getElementById("format").value,
-            duration: document.getElementById("duration").value,
-            certification_available: document.getElementById("certification_available").value === "true",
-            popularity: document.getElementById("popularity").value,
-            rating: document.getElementById("rating").value,
-        };
 
-        axios.put(`/api/courses/${courseId}`, formData)
-            .then(response => {
-                if (response.data.status === 'success') {
-                    // alert("Course updated successfully!");
-                    window.location.href = "/";  // Redirect to courses list page
-                } else {
-                    alert("Error updating course: " + response.data.msg);
-                }
-            })
-            .catch(error => {
-                console.error("Error updating course:", error);
+function submitForm(courseId) {
+    const formData = {
+        title: document.getElementById("title").value,
+        description: document.getElementById("description").value,
+        price: document.getElementById("price").value,
+        instructor_id: document.getElementById("instructor").value,
+        category_id: document.getElementById("category").value,
+        difficulty: document.getElementById("difficulty").value,
+        format: document.getElementById("format").value,
+        duration: document.getElementById("duration").value,
+        certification_available: document.getElementById("certification_available").value === "true",
+        popularity: document.getElementById("popularity").value,
+        rating: document.getElementById("rating").value,
+    };
+
+    axios.put(`/api/courses/${courseId}`, formData)
+        .then(response => {
+            if (response.data.status === 'success') {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: 'Course updated successfully!',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    window.location.href = "/";
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: response.data.msg,
+                    confirmButtonText: 'OK'
+                });
+            }
+        })
+        .catch(error => {
+            console.error("Error updating course:", error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Unexpected Error',
+                text: 'An unexpected error occurred while updating the course. Please try again.',
+                confirmButtonText: 'OK'
             });
-    }
+        });
+}
+
 
     // Validate form fields before submitting
     function validateForm() {
