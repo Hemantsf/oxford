@@ -135,18 +135,26 @@
 </div>
 
   
-    <div class="flex justify-end p-3">
+    <div class="flex justify-end p-3">          
     <a href="{{ url('/create_course') }}">
         <button class="bg-white text-gray-600 border-2 border-gray-600 font-semibold py-2 px-4 rounded-lg hover:bg-gray-600 hover:text-white hover:border-gray-700 transition duration-300">
             Create Course
         </button>
     </a>
 </div>
+<div class="mb-4 flex justify-between items-center">
+  
     <div id="courses-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Courses will be dynamically inserted here -->
     </div>
+    
 </section>
+
         </div>
+        <div class="flex justify-center p-3">
+<h2 id="search-result-count" class="text-lg font-bold text-gray-800">
+</h2>
+</div>
     </div>
     @include('partials.footer')
     <!-- Axios CDN -->
@@ -223,6 +231,8 @@
 
             // Display Courses
             function displayCourses(courses) {
+                document.getElementById("search-result-count").innerHTML = 'Showing results :' + courses.length;
+                
                 coursesList.innerHTML = '';
                 if (courses.length === 0) {
                     coursesList.innerHTML = '<p>No courses found.</p>';
