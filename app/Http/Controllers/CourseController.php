@@ -52,14 +52,12 @@ class CourseController extends BaseController
                 'instructor_id' => 'required|exists:instructors,id',
                 'difficulty' => 'required|in:Intermediate,Beginner,Advanced',
                 'duration' => 'required|in:< 2 hours,2–5 hours,5–10 hours,> 10 hours',
-                'format' => 'required|string',
+                'format' => 'required|string|in:Video,Text-based,Interactive/Live',
                 'certification_available' => 'required|boolean',
                 'popularity' => 'required|in:Most Enrolled,Trending,Recently Viewed',
                 'rating' => 'required|integer|max:5',
             ]);
             $validatedData['release_date'] = now();
-            // print_r($validatedData);
-            // die();
             $course = Course::create($validatedData);
 
             return $this->apiSuccess($course, 201);
@@ -82,7 +80,7 @@ class CourseController extends BaseController
                 'instructor_id' => 'required|exists:instructors,id',
                 'difficulty' => 'required|in:Intermediate,Beginner,Advanced',
                 'duration' => 'required|in:< 2 hours,2–5 hours,5–10 hours,> 10 hours',
-                'format' => 'required|string',
+                'format' => 'required|string|in:Video,Text-based,Interactive/Live',
                 'certification_available' => 'required|boolean',
                 'popularity' => 'required|in:Most Enrolled,Trending,Recently Viewed',
                 'rating' => 'required|integer|max:5',

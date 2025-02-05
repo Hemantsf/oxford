@@ -1,0 +1,38 @@
+type Product {
+    id: ID!
+    name: String!
+    description: String
+    price: Float!
+    stock: Int!
+    orders: [Order] @hasMany
+}
+
+type Order {
+    id: ID!
+    product: Product @belongsTo
+    user_id: ID!
+    quantity: Int!
+    total_price: Float!
+    status: String!
+    transactions: [OrderTransaction] @hasMany
+}
+
+type OrderTransaction {
+    id: ID!
+    order: Order @belongsTo
+    amount: Float!
+    payment_method: String!
+    status: String!
+}
+
+type Query {
+    products: [Product!]! @all
+    orders: [Order!]! @all
+    transactions: [OrderTransaction!]! @all
+}
+
+type Mutation {
+    createProduct(name: String!, description: String, price: Float!, stock: Int!): Product! @create
+    createOrder(product_id: ID!, user_id: ID!, quantity: Int!, total_price: Float!): Order! @create
+    createTransaction(order_id: ID!, amount: Float!, payment_method: String!): OrderTransaction! @create
+}
